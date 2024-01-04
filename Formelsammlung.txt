@@ -1,0 +1,505 @@
+Yotta- (Y): 10^24 und Yokto- (y): 10^-24
+Zetta- (Z): 10^21 und Zepto- (z): 10^-21
+Exa- (E): 10^18 und Atto- (a): 10^-18
+Peta- (P): 10^15 und Femto- (f): 10^-15
+Tera- (T): 10^12 und Piko- (p): 10^-12
+Giga- (G): 10^9 und Nano- (n): 10^-9
+Mega- (M): 10^6 und Mikro- (μ): 10^-6
+Kilo- (k): 10^3 und Milli- (m): 10^-3
+Hekto- (h): 10^2 und Zenti- (c): 10^-2
+Deka- (da): 10^1 und Dezi- (d): 10^-1
+
+Gravitationskonstante=6,674e-11
+Fläche Kreis: pi*r²
+volumen Kugel=4/3*pi*r³
+
+v = [m/s]
+s = [m]
+t = [s]
+a = [m/(s*s)]
+m = [kg]
+F = [N]
+W = [J]
+E = [J]
+
+
+sin(a)*cos(a)=sin(2*a)/2
+sin²(a)+cos²(a)=1
+tan(a)=geg/an
+sin(a)=geg/hyp
+cos(a)=an/hyp
+sin/cos=tan
+
+Winkel aus Vektor
+atan(x/y)
+
+1 atm = 1013,25hPa
+1 bar = 1*10^5 Pa
+1 mbar = 1hPa
+1 hPa = 100 Pa
+
+1 liter = 0.001m³
+
+def rad_2_deg(rad):
+    deg = rad * 180 / math.pi
+    return deg
+
+def deg_2_rad(deg):
+    rad = deg * math.pi / 180
+    return rad
+
+#km/h->m/s
+def km_h_2_m_s(km_h):
+    m_s = km_h * 0.27778
+    m_s = km_h * 5 / 18
+    return m_s
+#m/s -> km/h
+def m_s_2_km_h(m_s):
+    km_h = m_s / 0.27778
+    return km_h
+
+Geschwindigkeit
+v=ds/dt
+v=a*t
+v=(2*a*s)^0.5
+
+Beschleunigung
+a=dv/dt
+
+Erdbeschleunigung:
+g=9.81 m/(s*s)
+
+Strecke
+s=v*t
+s=1/2*a*t*t
+s=s+v*t+1/2*a*t*t
+
+v=(2*a*s)^0.5 //geschwindigkeit am ende einer Beschleunigung ueber Strecke s
+
+Geschwindigkeit Ende freier Fall:
+
+v=(2*g*hoehe)^0.5 [m/s]
+
+Geschwindigkeit
+
+V Schräger Wurf:
+
+V_x=V*cos(alpha)
+V_y=V*sin(alpha)
+
+3d:
+Vector3 s3d=new Vector3(s_x,s_y,s_z)
+Vector3 v3d=new Vector3(v_x,v_y,v_z)
+Vector3 a3d=new Vector3(a_x,a_y,a_z)
+
+Winkel zwischen Vektoren
+cos(alpha)=vector1*vector2/(|vector1|*|vector2|)
+alpha=acos(vector1*vector2/(|vector1|*|vector2|))
+
+Winkel aus Vektor
+atan(x/y)
+
+
+Kreisumfang: 2*pi*r
+
+Periodendauer T [s]
+Dauer für eine Rotation T
+
+T [s]
+T= 1/f [s]
+
+Rotationsfrequenz f Anzahl Rotationen pro Sekunde
+
+f=rotationen/t  [rotationen/s]=[Hz]
+f=1/T [Hz]
+f=v_w/(2*pi) [rotationen/s]=[Hz]
+
+Winkelgeschwindigkeit w [rad/s]
+
+v_w=2*pi*f [rad/s]
+v_w=2*pi/T
+
+phi=Winkel in rad
+
+v_w=phi/t [rad/s]
+
+a_w=v_w/t [rad/s²]
+phi=phi_0+v_w*t+a_w*0.5*t*t [rad]
+
+Für Radius r gilt: r in m [m]
+
+Strecke auf Bahn
+
+s_b=r*phi [m]
+
+Tangentialgeschwindigkeit/Bahngeschwindigkeit
+v_b = r*v_w [m/s]
+
+
+Tangentialbeschleunigung/Bahnbeschleunigung
+a_b = r*a_w [m/(s*s)]
+
+Zentripedalbeschleunigung (Beschleunigung zum Zentrum, damit Gegenstand auf Kreisbahn bleibt)
+
+a_z=r* v_w*v_w [m/(s*s)]
+a_z=v_b*v_b/r [m/(s*s)] //  unterschiedlich! statt *r -> /r
+
+
+
+Masse m [kg]
+
+Impuls p [kg*m/s]
+
+p=m*v [kg*m/s]
+p=F*t [kg*m/s]
+
+
+Force (Kraft) F (alles 3d) [N] = [kg*m/(s*s)]
+
+F=m*a [N] [kg*m/(s*s)]
+F=p/t [N] [kg*m/(s*s)]
+
+Gravitationskraft:
+
+G = Gravitationskonstante : 6.7 * 10^-11
+F_g=-G*(m1*m2)/abstand²
+alternativ
+F_g=G*(m1*m2)/abstand²
+
+Gravitationskraft Erde: g_f [N]= [kg*m/(s*s)]
+g=9.81 m/(s*s)
+g_f = g*m [N]
+
+Hangabtriebskraft: F_h  (Parallel zur Oberfläche)
+
+F_h=m*g*sin(alpha) [N]= [kg*m/(s*s)]
+F_h=F_g*sin(alpha) [N]= [kg*m/(s*s)]
+
+Normalkraft: F_n (Orthogonal zur Oberfläche)
+
+F_n=m*g*cos(alpha) [N]= [kg*m/(s*s)]
+F_n=F_g*cos(alpha) [N]= [kg*m/(s*s)]
+
+Reibungskraft: F_r [N]= [kg*m/(s*s)]
+
+F_r=F_n*Reibungskoeffizient [N]= [kg*m/(s*s)]
+
+Reibungskoeffizient müh
+
+Haftreibungskoeffizient= F_h/F_n
+Gleitreibungskoeffizient=F_g/F_n
+
+
+
+Zentripedalkraft
+F_zp=m*v_b*v_b/r  [n] = [kg*m/(s*s)] v_b = Bahngeschwindigkeit
+F_zp=m*r*v_w*v_w   [n] = [kg*m/(s*s)] v_w =Winkelgeschwindigkeit
+F_zp=m*a_z [n] = [kg*m/(s*s)] a_z = Zentripedalbeschleunigung
+
+
+Federkraft F_f [N]= [kg*m/(s*s)]
+
+F_f=-D * x  //x= Auslenkung -D=Federkonstante der Feder
+
+Federkonstante berechnen:
+D = E*2/s² [N/m]
+D = F/s [N/m]
+
+Feder "Parallelschaltung" f = f_1+f_2
+Feder "Reihenschaltung" 1/f = 1/f_1+1/f_2
+
+Arbeit W  [J] = [Nm] = [kg*m*m/(s*s)]
+=
+Energie E  [J] = [Nm] = [kg*m*m/(s*s)]
+
+W = F*s [J] = [Nm] = [kg*m*m/(s*s)]
+E = F*s [J] = [Nm] = [kg*m*m/(s*s)]
+
+Lagenergie (auch am Hang mit Schräge)
+
+W=g*m*s [J] = [Nm] = [kg*m*m/(s*s)]
+E_p=g*m*s [J] = [Nm] = [kg*m*m/(s*s)]
+
+Spannarbeit / Federenergie
+
+W_s=0.5 * D * s * s [J] = [Nm] = [kg*m*m/(s*s)]
+E_f=0.5 * D * s * s [J] = [Nm] = [kg*m*m/(s*s)]
+
+Kinetische Energie [J] = [Nm] = [kg*m*m/(s*s)]
+
+W_b=0.5*m*v_d*v_d [J] = [Nm] = [kg*m*m/(s*s)]
+E_k=0.5*m*v_d*v_d [J] = [Nm] = [kg*m*m/(s*s)]
+
+Rotationsenergie E_r [Nm]
+E_r= 0.5 * J * v_w² [Nm]
+
+
+Leistung P [W]
+
+P = W/t [W] = [J/s]
+P = E/t [W] = [J/s]
+
+Stoß
+
+Inelastischer Stoß
+Gleiche Richtung
+v_neu = (m_1*v_1+m_2*v_2) / (m_1+m_2) [m/s]
+Unterschiedliche Richtung
+v_neu = (m_1*v_1-m_2*v_2) / (m_1+m_2)
+
+Elastischer Stoß
+
+Gleiche Richtung
+v_1_neu = (m_1-m_2)*v_1/(m_1+m_2)+2*m_2*v_2/(m_1+m_2)
+v_2_neu = (m_2-m_1)*v_2/(m_1+m_2)+2*m_1*v_1/(m_1+m_2)
+Unterschiedliche Richtung
+v_1_neu = (m_1-m_2)*v_1/(m_1+m_2)-2*m_2*v_2/(m_1+m_2)
+v_2_neu = (m_2-m_1)*v_2/(m_1+m_2)-2*m_1*v_1/(m_1+m_2)
+
+
+
+Drehung:
+
+Drehimpuls L [kg*m/s]
+
+J=Trägheitsmoment
+L=J*v_w
+
+Drehmoment: M
+
+Hebelradius=r F=Kraft an Spitze des Hebels
+M=r*F [Nm]
+
+a_w = Winkelbeschleunigung [rad/s²]
+J=Trägheitsmoment [kg*m*m]
+
+M=J*a_w [Nm]
+
+Bei Rotationsdynamik:
+P=Leistung
+v_w_avg=durschnittliche Winkelgeschwindigkeit
+v_w_avg=(v_w_end-v_w_start)/2
+M=P/v_w_avg [Nm]
+
+
+Massenmittelpunkt:
+
+r3d = m_1*v1+m_2*v2+... / (m_1+m_2+...)
+
+Trägheitsmoment J [kg*m*m]
+
+Punktmasse mit Abstand r zur Rotationsachse
+
+J_p=m*r² [kg*m*m]
+
+Mehrere Punktmassen:
+J_1+J_2+J_3 ...
+
+Rotations um eigene Achse:
+
+Rad (Dünner Ring) Rotationsachse durch Loch:
+J=m*r²  [kg*m*m]
+
+Rad (Dünner Ring) Rotationsachse durch Kante:
+J= 0.5 * m*r² [kg*m*m]
+
+Scheibe:
+J=0.5*m*r²  [kg*m*m]
+
+Zylinder Drehachse durch Boden:
+J=0.5*m*r² [kg*m*m]
+
+Hohlzylinder Drehachse durch Loch:
+r_a = radius außen
+r_i = radius innen
+J=0.5 * m *(r_a²+r_i²)  [kg*m*m] //doppelt gecheckt stimmt
+vereinfacht ungenau:
+J=m*r²
+
+Zylinder Drehachse durch Länge
+J=1/4*m*r²+1/12*m*l² [kg*m*m]
+
+
+Kugel:
+J=2/5*m*r²  [kg*m*m]
+
+
+Quader:
+J=1/12*m*(a²+b²) //Kante entlang der Rotationsachse fällt weg
+Würfel:
+J=1/6*m*a² [kg*m*m]
+Dünner Stab (Zylinder mit Radius "0")
+J=1/12*m*l²
+
+Trägheitsmoment mit verschobener Achse (Steiner)
+r= verschiebung der Drehachse (Abstand)
+J_objekt = Trägheitsmoment wenn Drehachse durch Objekt gehen würde
+
+J = J_objekt + m*r*r  [kg*m*m]
+
+Rotationsenergie E_r [Nm]
+E_r= 0.5 * J * v_w² [Nm]
+
+
+Fluidstatik
+
+Dichte ß
+
+ß=m/V [kg/m*m*m]
+m=ß*v
+V=m/ß
+
+Druck p
+
+p=F/A [N/m*m]=[Pa] //A=Fläche in [m*m]
+
+Hydrostatischer Druck
+
+//s=höhe der Flüssigkeitssäule (Tauchtiefe)
+//ß= dichte des flüssigkeitssäule
+//g= F_down meistens g
+p_h =  ß * g * s [Pa]
+p=p_0+p_1  //druck unterschiedlicher Medien welche eine Säule ergeben, können aufaddiert werden
+
+
+
+Hydraulik
+
+F_1 / F_2 = A_1 / A_2
+F_1 = A_1 * F_2 / A_2
+F_2 = A_2 * F_1 / A_1
+
+
+Barometrische Höhenformel zur Berechnung des Luftdrucks auf einer bestimmten Höhe
+//gilt nur für Gase (Luft)
+//p_h druck in Höhe h
+//p_0 druck auf Ausgangshöhe
+//dichte bei p_0
+//h= höhe
+//h_0 = Ausgangshöhe
+p_h = p_0 * e^(ß_0 / p_0 *g * (h-h_0))
+
+
+Autrieb F_A
+//F_A = Auftriebskraft, welche auf das Objekt wirkt, welche das Fluid verdrängt
+//ß = dichte des verdrängten Fluids
+//V = Volumen des verdrängten Fluids
+//m = Masse des verdängten Fluids
+//F_A = Auftriebskraft, welche auf das Objekt wirkt, welche das Fluid verdrängt
+//g=Erdbeschleunigung bzw. Beschleunigung Systemspezifisch
+F_A = ß_f * V_f * g
+F_A = m_f*g
+
+Schwingungen
+
+Harmonische Schwingung allgemein:
+
+Differenzialgleichung
+
+x''+z*x=0
+v_w_e=z^0.5 [rad/s]
+x''+v_w_e²*x=0
+x(t)=A*sin(v_w_e*t) [m]
+x=A*sin(v_w_e*t) [m]
+x=A*sin(v_w_e*t+offset) [m]
+
+Feder-Masse-System D=Federkonstante
+
+v_w_e=(D/m)^0.5 [rad/s]
+
+
+Mathematisches Pendel
+
+v_w_e=(g/r)^0.5
+T_e = 2*pi/v_w_e
+T_e = 2*pi*(r/g)^0.5
+
+Winkel der Kreisbahn
+alpha=max_alpha*sin(v_w_e*t)
+alpha=max_alpha*sin(v_w_e*t+offset)
+
+Länge des Kreisbaschnitts
+s=r*alpha
+
+X in Abhängigkeit von alpha
+x=math.sin(alpha)*r
+x=math.sin(max_alpha*sin(v_w_e*t))*r
+
+Kräfte im mathematischen Pendel:
+
+F_g=m*g
+
+#Kraft als Verlängerung der Pendelstange
+alpha=Winkel zwischen Lot und Pendel
+F_r=F_g*cos(alpha)
+
+#Kraft als Tangente des Kreisbogens
+alpha=Winkel zwischen Lot und Pendel
+F_t=F_g*sin(alpha)
+F_t=-m*g*sin(alpha)
+
+Physikalische Pendel:
+
+
+alpha=max_alpha*sin(v_w_e*t)
+
+J=Trägheitsmoment gesammt mit Steiner [kg*m*m]
+v_w_e = (m*g*r/(J))^0.5
+
+J_e = Trägheitsmoment eines Körpers ohne Steiner [kg*m*m]
+v_w_e = (m*g*r/(J_e+m*r²))^0.5
+J_e = (m*g*r-v_w_e²*m*r²)/v_w_e²
+
+Drehmoment M:
+M=-m*g*r*sin(alpha)
+mit Kleinwinkelnäherung:
+M=-m*g*r*alpha
+
+Gedämpfter harmonischer Oszillator:
+
+Allgemein:
+
+0
+
+x=A*(e^(-roh*t))*sin(t*v_w_e)
+x=A*(e^(-C*t/(2*m)))*sin(t*((D/m)-roh²)^0.5)
+
+Eigenbahngeschwindigkeit:
+
+v_w_e=((D/m)-roh²)^0.5
+
+Dämpfungskonstante/Abklingkonstante roh:
+
+roh = C/(2*m)
+
+Dämpfungskoeffizient/Dämpfungskonstante C
+
+C = 2*roh*m [kg/s]
+
+
+Gütefaktor Q
+
+Q=2*pi/(2*roh*T)
+Q=v_w_e/(2*roh)
+
+Amplitude in abhängigkeit von Zeit
+A=A_max*e^(-roh*t)
+roh=ln(A_max/A)/t
+
+
+
+Angetriebener harmonische Osizillator
+
+v_w_e=(D/m)^0.5
+
+Resonanzfrequenz
+v_w_r=(D/m-2*roh*roh)^0.5
+
+Resonanzamplitude:
+
+A_r=F_m/(2*roh*m*v_w_r)
+
+
+Schwebung:
+
+f_s=|f1-f2|
