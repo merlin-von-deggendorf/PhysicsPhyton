@@ -1,3 +1,9 @@
+Formelsammlung für Informatiker
+
+written in ASCII
+
+https://github.com/merlin-von-deggendorf/PhysicsPhyton/blob/master/Formelsammlung.txt
+
 Yotta- (Y): 10^24 und Yokto- (y): 10^-24
 Zetta- (Z): 10^21 und Zepto- (z): 10^-21
 Exa- (E): 10^18 und Atto- (a): 10^-18
