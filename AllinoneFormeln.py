@@ -15,6 +15,10 @@ def kmh_2_ms(km_pro_s):
     return km_pro_s * 1000 / (60 * 60)
 
 
+def ln(value):
+    return math.log(value, math.e)
+
+
 g = 9.81
 km_h_2_m_s = 5 / 18
 
@@ -1445,6 +1449,274 @@ def kinderwagen():
     t = 3
     roh = math.log(10, math.e) / t
     print(roh)
+    C = 2 * roh * m
+    print(C)
+    v_w_r = (D / m - 2 * roh ** 2) ** 0.5
+    print(v_w_r)
+    f_r = v_w_r / 2 / math.pi
+    T_r = 1 / f_r
+    v = 4 / T_r
+    print(v)
+    return C, D
 
 
-kinderwagen()
+def kinderwagen2(C, D):
+    print("kw2")
+    m_wagen = 13
+    m_kind = 15
+    m = m_wagen + m_kind
+    w = (D / m) ** 0.5
+    t = 3
+    roh = C / m / 2
+    print(roh)
+    w_r = (D / m - 2 * roh ** 2) ** 0.5
+    print(w_r)
+    f = w_r / 2 / math.pi
+    T = 1 / f
+    v = 4 / T
+    print(v)
+
+
+C_temp_4_kw, D_temp_4_kw = kinderwagen()
+kinderwagen2(C_temp_4_kw, D_temp_4_kw)
+
+
+def bungee2():
+    print("Bungee 2")
+    l_seil = 25
+    h_plattform = 50
+    m = 80
+    stopp = 5
+    # D=E*2/s²
+    E = m * g * (h_plattform - stopp)
+    l_dehnung = 50 - 25 - 5
+    D = E * 2 / l_dehnung ** 2
+    print(D)
+
+    # E=m*g*h_plattform
+    # D=m*g*h_plattform*2/25**2
+    m = D / g / h_plattform / 2 * 25 ** 2
+    print(m)
+    m = 80
+    abklingzeit = 12
+    A = l_dehnung
+    A_neu = 0.3 * A
+    roh = ln(A / A_neu) / abklingzeit
+    print(f"roh:{roh}")
+    v_w_e = ((D / m) - roh ** 2) ** 0.5
+    f = v_w_e / 2 / math.pi
+    print(f"w:{v_w_e} f:{f}")
+    print("Stillstand:")
+    F = m * g
+    # D=F/s
+    s = F / D
+    endhoehe = h_plattform - l_seil - s
+    print(endhoehe)
+
+
+bungee2()
+
+
+def solei():
+    print("solei")
+    m = 64 / 1000
+    volumen = 60 / 100 ** 3
+    ß = m / volumen
+    print(ß)
+    m_wasser = 1
+    v_wasser = 1 / 10 / 10 / 10
+    # m_ei=((m_wasser_1l+salz)/v_wasser_1l)*v_ei
+    # ß_ei=((m_wasser_1l+salz)/v_wasser_1l)
+    # ß_ei*v_wasser_1l-m_wasser_1l=salz
+    m_salz = ß * v_wasser - m_wasser
+    print(m_salz)
+    masse_1l = 1.2
+    volumen_1l = 1 / 10 ** 3
+    ß = masse_1l / volumen_1l
+    print(ß)
+    # m =volumen_unter * (masse_1l / volumen_1l)
+    volumen_unter = m / masse_1l * volumen_1l
+    ein_p = volumen / 100
+    p_unter = volumen_unter / ein_p
+    p_ober = 100 - p_unter
+    print(p_ober)
+    f_up = volumen * ß * g
+    f_down = m * g
+    f_delta = f_up - f_down
+    print(f" delta:{f_delta * 1000} mN")
+
+
+solei()
+
+
+def tracktor():
+    print("träcker")
+    m_b = 85
+    m_s = 5
+    C = 10
+    s = 0.05
+    D = m_b * g / s
+    print(f"Federkonstante:{D}")
+    m = m_b + m_s
+    roh = C / 2 / m
+    v_w_r = (D / m - 2 * roh ** 2) ** 0.5
+    f = v_w_r / 2 / math.pi
+    rpm = f * 60
+    print(v_w_r)
+    print(rpm)
+    A_motor = 0.005
+    A_r = D / m * A_motor / (2 * roh * (D / m - roh ** 2) ** 0.5)
+    v_w_e_q1 = v_w_r
+    roh_q1 = roh
+    print(A_r)
+    m_sohn = 40
+    m = m_sohn + m_s
+    roh = C / 2 / m
+    v_w_r = (D / m - 2 * roh ** 2) ** 0.5
+    f = v_w_r / 2 / math.pi
+    rpm = f * 60
+    print(rpm)
+    print("Dämpfung")
+    roh_b = C / 2 / (m_s + m_b)
+    t = 3  # A*0.1=A_r_b*e^(-roh*t)
+    # ln(A_r_b*0.1/A_r_b)=-roh*t
+    roh = ln(1 / 0.1) / t
+    C = 2 * roh * (m_b + m_s)
+
+    # Bauer neu
+    v_w_r_b = (D / (m_s + m_b) - 2 * roh ** 2) ** 0.5
+    A_r_b = D / (m_b + m_s) * A_motor / (2 * roh * (D / (m_b + m_s) - roh ** 2) ** 0.5)
+    v_w_e_q2 = v_w_r_b
+    roh_q2 = roh
+    print(f" roh:{roh} c:{C}")
+    print(f" res bauer:{v_w_r_b / 2 / math.pi * 60}  res a:{A_r_b}")
+    print(f"Aufgabe f: Gütefaktor")
+    # Q=v_w_e/(2*roh)
+    Q_1 = v_w_e_q1 / 2 / roh_q1
+    Q_2 = v_w_e_q2 / 2 / roh_q2
+    print(f"Q1: {Q_1} Q2:{Q_2}")
+
+
+tracktor()
+
+
+def james_bond():
+    print("James Bond")
+    m = 620
+    hoehe = 1
+    federweg = 0.2
+    E = m * g * (hoehe + federweg)
+    D = E * 2 / 0.2 ** 2
+    print(D)
+    A_end = 0.02
+    t = 5
+    # A_end=A_max*e^(roh*t)
+    # ln(A_end/A_max)/t=roh
+    roh = ln(A_end / federweg) / -t
+    print(roh)
+    C = 2 * roh * m
+    print(C)
+    # D=F/s
+    # s=F/D
+    m_e = 80
+    F = g * (m_e)
+    s = F / D
+    print(s)
+    m2 = m_e + m
+    roh2 = C / (2 * m2)
+    v_w_e = ((D / m2) - roh2 ** 2) ** 0.5
+    v_w_r = ((D / m2) - 2 * roh2 ** 2) ** 0.5
+    print(v_w_r)
+    f = v_w_r / 2 / math.pi
+    T = 1 / f
+    v = 8 / T
+    print(v / 5 * 18)
+
+
+james_bond()
+
+
+def honig_schleuder():
+    print("Honig")
+    print("Oje oje")
+    a_z = 20
+    r = 0.1
+    m = 2
+    v_w = (a_z / r) ** 0.5
+    print(v_w)
+    f = v_w / 2 / math.pi
+    rpm = f * 60
+    print(rpm)
+    # P=E/t
+
+    P = 100
+    t = 0.5
+    rpm = 150
+    f = 150 / 60
+    w = f * 2 * math.pi
+    E = P * t
+    # E_r=0.5*j*w²
+    # j=E_r*2/w²
+    J_leer = E * 2 / w ** 2
+    print(J_leer)
+    J_wabe = m * (0.2 ** 2) / 12
+    print(f"Wabe: {J_wabe}")
+    r_achse = 0.1 + 0.1
+    J_wabe_steiner = J_wabe + m * r_achse ** 2
+    print(f"Wabe Steiner:{J_wabe_steiner}")
+    J_sum = J_leer + J_wabe_steiner * 8
+    print(J_sum)
+    print("Final")
+    E = 0.5 * J_sum * w ** 2
+    # P=E/t
+    t = E / P
+    print(t)
+
+
+honig_schleuder()
+
+
+def tom_jerry():
+    print("tom jerry")
+    m_t = 3
+    m_g = 3.5
+    kpm = 900
+    kps = kpm / 60
+    m_k = 0.015
+    v_k = 350
+    p = v_k * m_k
+    print(p)
+    # m*v/s=p*kps
+    # m*a=p*kps
+    # F=p*kps
+    F = p * kps
+    print(F)
+    # F=a*m
+    a = F / (m_t + m_g) - g
+    print(a)
+    n = 45
+    # kps=n/t
+    t = n / kps
+    v_end = a * t
+    x = 0.5 * a * t ** 2
+    print(f"hoehe:{x}")
+    print(f"v_end:{v_end}")
+    # 0.5*g*t²=v*t*0.5
+    # g*t=v
+    #
+    t = v_end / g
+    h = 0.5 * g * t ** 2
+    print(f"Zusatzhoehe:{h}")
+    # by Energy
+    E_kin_pro_masse = 0.5 * v_end ** 2
+    hoehe_pro_masse = E_kin_pro_masse / g
+    print(hoehe_pro_masse)
+    # g*t=v
+    # t=v/g
+    t = v_end / g
+    h_zusatz = 0.5 * g * t ** 2
+    print(h_zusatz)
+    print(f"Endhoehe:{h_zusatz + x}")
+
+
+tom_jerry()

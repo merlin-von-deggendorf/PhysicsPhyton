@@ -1,6 +1,6 @@
 Formelsammlung für Informatiker
 
-written in ASCII
+in ASCII format
 
 https://github.com/merlin-von-deggendorf/PhysicsPhyton/blob/master/Formelsammlung.txt
 
@@ -233,8 +233,8 @@ E_f=0.5 * D * s * s [J] = [Nm] = [kg*m*m/(s*s)]
 
 Kinetische Energie [J] = [Nm] = [kg*m*m/(s*s)]
 
-W_b=0.5*m*v_d*v_d [J] = [Nm] = [kg*m*m/(s*s)]
-E_k=0.5*m*v_d*v_d [J] = [Nm] = [kg*m*m/(s*s)]
+W_b=0.5*m*v² [J] = [Nm] = [kg*m*m/(s*s)]
+E_k=0.5*m*v² [J] = [Nm] = [kg*m*m/(s*s)]
 
 Rotationsenergie E_r [Nm]
 E_r= 0.5 * J * v_w² [Nm]
@@ -298,6 +298,10 @@ Punktmasse mit Abstand r zur Rotationsachse
 
 J_p=m*r² [kg*m*m]
 
+Steiner:
+J = J_objekt + m*r²  [kg*m*m]
+
+
 Mehrere Punktmassen:
 J_1+J_2+J_3 ...
 
@@ -319,8 +323,7 @@ Hohlzylinder Drehachse durch Loch:
 r_a = radius außen
 r_i = radius innen
 J=0.5 * m *(r_a²+r_i²)  [kg*m*m] //doppelt gecheckt stimmt
-vereinfacht ungenau:
-J=m*r²
+
 
 Zylinder Drehachse durch Länge
 J=1/4*m*r²+1/12*m*l² [kg*m*m]
@@ -337,11 +340,15 @@ J=1/6*m*a² [kg*m*m]
 Dünner Stab (Zylinder mit Radius "0")
 J=1/12*m*l²
 
+Platte: Rotationsachse durch länge
+l=Länge
+J=m*l²/12
+
 Trägheitsmoment mit verschobener Achse (Steiner)
 r= verschiebung der Drehachse (Abstand)
 J_objekt = Trägheitsmoment wenn Drehachse durch Objekt gehen würde
 
-J = J_objekt + m*r*r  [kg*m*m]
+J = J_objekt + m*r²  [kg*m*m]
 
 Rotationsenergie E_r [Nm]
 E_r= 0.5 * J * v_w² [Nm]
@@ -409,12 +416,17 @@ x(t)=A*sin(v_w_e*t) [m]
 x=A*sin(v_w_e*t) [m]
 x=A*sin(v_w_e*t+offset) [m]
 
-Feder-Masse-System D=Federkonstante
-
+Feder-Masse-System/Federpendel
+D=Federkonstante
 v_w_e=(D/m)^0.5 [rad/s]
+v_w_e=(D/m)^0.5
+x''+D*x/m=0
+T=2*pi*(m/D)^0.5
 
 
-Mathematisches Pendel
+Mathematisches Pendel/Fadenpendel
+
+alpha''+g*alpha/r=0
 
 v_w_e=(g/r)^0.5
 T_e = 2*pi/v_w_e
@@ -444,13 +456,16 @@ alpha=Winkel zwischen Lot und Pendel
 F_t=F_g*sin(alpha)
 F_t=-m*g*sin(alpha)
 
+#Zusätzlich: Zentrifugalkraft (abhängig von Anfangsamplitude)
+
 Physikalische Pendel:
 
+alpha''+m*g*r*alpha/J=0
 
 alpha=max_alpha*sin(v_w_e*t)
 
 J=Trägheitsmoment gesammt mit Steiner [kg*m*m]
-v_w_e = (m*g*r/(J))^0.5
+v_w_e = (m*g*r/J)^0.5
 
 J_e = Trägheitsmoment eines Körpers ohne Steiner [kg*m*m]
 v_w_e = (m*g*r/(J_e+m*r²))^0.5
@@ -465,7 +480,7 @@ Gedämpfter harmonischer Oszillator:
 
 Allgemein:
 
-0
+x''+C*x'/m+D*x/m=0
 
 x=A*(e^(-roh*t))*sin(t*v_w_e)
 x=A*(e^(-C*t/(2*m)))*sin(t*((D/m)-roh²)^0.5)
@@ -474,38 +489,37 @@ Eigenbahngeschwindigkeit:
 
 v_w_e=((D/m)-roh²)^0.5
 
-Dämpfungskonstante/Abklingkonstante roh:
+Abklingkonstante roh:
 
-roh = C/(2*m)
+roh = C/(2*m) [1/s]
 
-Dämpfungskoeffizient/Dämpfungskonstante C
+Dämpfungskoeffizient/Dämpfungskonstante C abhängig von Feder nicht von Gesamtmasse
 
 C = 2*roh*m [kg/s]
 
+Amplitude in abhängigkeit von Zeit
+A=A_max*e^(-roh*t)
+roh=ln(A/A_max)/-t
+
+Energieverlust einer Periode:
+E_delta/E=2*roh*T
 
 Gütefaktor Q
 
 Q=2*pi/(2*roh*T)
 Q=v_w_e/(2*roh)
 
-Amplitude in abhängigkeit von Zeit
-A=A_max*e^(-roh*t)
-roh=ln(A_max/A)/t
+Angetriebener harmonische Osizillator/Erzwungene Schwingung
 
-
-
-Angetriebener harmonische Osizillator
-
+v_w_e = Winkelgeschwindigkeit Feder
 v_w_e=(D/m)^0.5
 
 Resonanzfrequenz
-v_w_r=(D/m-2*roh*roh)^0.5
+v_w_m= Winkelgeschwindigkeit Motor
+v_w_m=(D/m-2*roh²)^0.5 [rad/s]
 
 Resonanzamplitude:
 
-A_r=F_m/(2*roh*m*v_w_r)
-
-
-Schwebung:
-
-f_s=|f1-f2|
+A_m=Amplitude Motor
+A_r=v_w_e²*A_m/(2*roh*(v_w_e²-roh²)^0.5)
+A_r=D/m*A_m/(2*roh*(D/m-roh²)^0.5)
